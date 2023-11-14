@@ -120,7 +120,7 @@ func rome_to_arab_10(r string) (int, error) {
             return i + 1, nil
         }
     }
-    return 0, errors.New("Неправильный ввод")
+    return 0, errors.New("Неправильный ввод чисел")
 }
 
 func check_enter(n1, n2 string) bool {
@@ -150,13 +150,18 @@ func check_operator(o string) bool {
 
 
 func main() {
-    var n1, o, n2 string
+    var n1, o, n2, c string
 
     fmt.Println("Enter string")
-    fmt.Scanln(&n1, &o, &n2)
+    fmt.Scanln(&n1, &o, &n2, &c)
+
+    if c !=  "" {
+        fmt.Println("Неверный формат ввода")
+        return
+    }
 
     if check_enter(n1, n2) {
-        fmt.Println("Неправильный ввод")
+        fmt.Println("Неправильный ввод чисел")
         return
     }
     if check_operator(o) {
